@@ -1,9 +1,10 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { UserProvider } from './context';
-import { Private } from './features/components/Private';
+import { Entities } from './features/components/Entities';
+import { MyPortal } from './features/components/MyPortal';
+import { NotFound } from './features/components/NotFound';
 import { Public } from './features/components/Public';
-// import { NotFound } from './features/components/NotFound';
 
 function App() {
   return (
@@ -11,7 +12,10 @@ function App() {
       <UserProvider>
         <Routes>
           <Route path="/" element={<Public />} />
-          <Route path='/private' element={<Private />} />
+          <Route path='/entities' element={<Entities />}>
+            <Route path=":id" element={<MyPortal />} />
+          </Route>
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </UserProvider>
     </BrowserRouter>

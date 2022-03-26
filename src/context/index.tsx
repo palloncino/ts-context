@@ -25,4 +25,4 @@ export function contextCreator<A>(defaultValue: A) {
   return [ctx, Provider] as const;
 }
 
-export const [userContext, UserProvider] = contextCreator({ name: 'Toni', data: {}});
+export const [userContext, UserProvider] = contextCreator({ name: 'generic string data', data: {}});
